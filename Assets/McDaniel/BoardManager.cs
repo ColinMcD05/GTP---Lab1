@@ -2,16 +2,25 @@ using UnityEngine;
 
 public class BoardManager : MonoBehaviour
 {
-	private Vector3 [,] grid;
-	[SerializeField] private int dimensionOfSqaures;
+	private Grid grid;
+	[SerializeField] private int dimensionOfSqaures = 1;
 	private GridCreator gridCreator;
 
-	private void Start(){
+	public BoardManager(){
 		gridCreator = new GridCreator(dimensionOfSqaures);
-		grid = new Vector3[8,8];
+	}
+
+	private void Start(){
+		grid = new Grid();
 	}
 
 	#if UNITY_EDITOR
-
+	private void OnDrawGizmos(){
+		gridCreator.CreateBoard(ref grid);
+	}
 	#endif
+	
+	public int GetDimensions(){
+		return dimensionOfSqaures;
+	}
 }
