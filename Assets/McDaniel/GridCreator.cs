@@ -1,16 +1,30 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class GridCreator : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private int dimensions;
+
+	public GridCreator(int dimension){
+		dimensions = dimension;
+	}
+
+	public void CreateBoard(){
+	}
+
+	private void CreateOutline(){
+
+	}
+
+	private void CreateRows(){
+
+	}
+
+	private void CreateColumns(){
+
+	}
+
+	public int GetDimensions(){
+		return dimensions;
+	}
 }
