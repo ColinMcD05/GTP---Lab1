@@ -3,9 +3,9 @@ using UnityEngine;
 public class GridCreator
 {
 
-	private int dimensions;
+	private float dimensions;
 
-	public GridCreator(int dimension){
+	public GridCreator(float dimension){
 		dimensions = dimension;
 	}
 
@@ -13,6 +13,7 @@ public class GridCreator
 		CreateOutline();
 		CreateRows(ref grid);
 		CreateColumns(ref grid);
+		grid.ColorSquare(dimensions);
 	}
 
 	private void CreateOutline(){
@@ -38,10 +39,18 @@ public class GridCreator
 	}
 
 	private void CreateRows(ref Grid grid){
-
+		for (int i = 0; i < 8; i++)
+		{
+			Gizmos.DrawLine(new Vector3(0, i * dimensions, 0), new Vector3(8 * dimensions, i * dimensions, 0));
+			grid.SetRowYPosition(i, (dimensions / 2) + i);
+		}
 	}
 
 	private void CreateColumns(ref Grid grid){
-
+		for (int i = 0; i < 8; i++)
+		{
+            Gizmos.DrawLine(new Vector3(i * dimensions, 0, 0), new Vector3(i * dimensions, 8 * dimensions, 0));
+            grid.SetColumnXPosition(i, (dimensions/2) + i);
+        }
 	}
 }

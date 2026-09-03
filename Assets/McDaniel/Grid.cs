@@ -8,15 +8,34 @@ public class Grid
 		grid = new Vector3[8,8];
 	}
 
-	public void SetRowXPosition(int row, int newPosition){
+	public void SetColumnXPosition(int column, float newPosition){
 		for(int i = 0; i < 8; i++){
-			grid[row, i].x = newPosition;
+			grid[column, i].x = newPosition;
 		}
 	}
 
-	public void SetColumnYPosition(int column, int newPosition){
+	public void SetRowYPosition(int row, float newPosition){
 		for(int i = 0; i < 8; i++){
-			grid[i, column].y = newPosition;
+			grid[i, row].y = newPosition;
+		}
+    }
+
+	public void ColorSquare(float dimensions)
+	{
+		for(int i = 0; i < 8; i++)
+		{
+			for(int j = 0; j < 8; j++)
+			{
+				if((i+j)%2 == 1)
+				{
+					Gizmos.color = Color.white;
+				}
+				else
+				{
+					Gizmos.color = Color.black;
+				}
+				Gizmos.DrawCube(grid[i,j], new Vector3(dimensions, dimensions, 0));
+			}
 		}
 	}
 }

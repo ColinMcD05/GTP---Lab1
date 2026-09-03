@@ -3,16 +3,13 @@ using UnityEngine;
 public class BoardManager : MonoBehaviour
 {
 	private Grid grid;
-	[SerializeField] private int dimensionOfSqaures = 1;
+	[SerializeField] private float dimensionOfSqaures = 1;
 	private GridCreator gridCreator;
 
 	public BoardManager(){
 		gridCreator = new GridCreator(dimensionOfSqaures);
-	}
-
-	private void Start(){
-		grid = new Grid();
-	}
+        grid = new Grid();
+    }
 
 	#if UNITY_EDITOR
 	private void OnDrawGizmos(){
@@ -20,7 +17,7 @@ public class BoardManager : MonoBehaviour
 	}
 	#endif
 	
-	public int GetDimensions(){
+	public float GetDimensions(){
 		return dimensionOfSqaures;
 	}
 }
