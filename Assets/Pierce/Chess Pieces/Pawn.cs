@@ -5,26 +5,16 @@ public class Pawn : ChessPieces
 {
     protected override PieceType Type => PieceType.Pawn;
 
-    protected override void GetPieceSprite()
-    {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = spriteColor;
-
-        iconName = "Pawn.png";
-
-        Gizmos.DrawIcon(transform.position, iconName, allowScaling);
-    }
-
     // Pawn can do a variety of moves, but for the purpose of the assignment
     // only two are shown, the basic move and the beginning game two space move
-    protected override void ShowMoveOptions()
+    protected override void ShowMoveOptions(Vector3 position, float dimensions)
     {
         // Upwards
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position + Vector3.forward, Vector3.one);
+        Gizmos.DrawWireCube(position + Vector3.forward * dimensions, Vector3.one * dimensions);
 
         // Beginning Upwards
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + Vector3.forward * 2, Vector3.one);
+        Gizmos.DrawWireCube(position + Vector3.forward * 2 * dimensions, Vector3.one * dimensions);
     }
 }

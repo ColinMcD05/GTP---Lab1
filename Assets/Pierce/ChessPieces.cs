@@ -1,14 +1,12 @@
 using System;
 using UnityEngine;
 
-public abstract class ChessPieces : MonoBehaviour
+public abstract class ChessPieces
 {
-    protected string iconName;
-    protected bool allowScaling = true;
     [SerializeField] protected Color spriteColor = Color.white;
     
     // Enum so children of this class can categorize themselves
-    protected enum PieceType
+    public enum PieceType
     {
         Pawn,
         Rook,
@@ -26,15 +24,12 @@ public abstract class ChessPieces : MonoBehaviour
     [SerializeField] protected abstract PieceType Type { get; }
 
     // Will assign a sprite to the corresponding piece.
-    protected abstract void GetPieceSprite();
+    public void DrawImage(Vector3 position)
+    {
+        Gizmos.DrawIcon(position, Type.ToString(), true);
+    }
 
     // Protected function for child classes to override
     // Shows possible movement options in the form of squares as gizmos
-    protected abstract void ShowMoveOptions();
-
-    // Only shows the move options when selected
-    private void OnDrawGizmosSelected()
-    {
-        ShowMoveOptions();
-    }
+    protected abstract void ShowMoveOptions(Vector3 position, float dimensions);
 }
