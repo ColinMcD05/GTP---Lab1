@@ -3,6 +3,9 @@ using UnityEngine;
 
 public abstract class ChessPieces : MonoBehaviour
 {
+    protected string iconName;
+    protected bool allowScaling = true;
+    
     // Enum so children of this class can categorize themselves
     protected enum PieceType
     {
