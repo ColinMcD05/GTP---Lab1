@@ -20,4 +20,9 @@ public class BoardManager : MonoBehaviour
 	public float GetDimensions(){
 		return dimensionOfSqaures;
 	}
+
+	public Grid getGrid()
+	{
+		return grid;
+	}
 }
