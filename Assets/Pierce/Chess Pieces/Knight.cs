@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Knight : ChessPieces
 {
-    protected override PieceType Type => PieceType.Knight;
-
     protected override void GetPieceSprite()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();

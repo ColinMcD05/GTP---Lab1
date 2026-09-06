@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Rook : ChessPieces
 {
-    protected override PieceType Type => PieceType.Rook;
-
     protected override void GetPieceSprite()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
