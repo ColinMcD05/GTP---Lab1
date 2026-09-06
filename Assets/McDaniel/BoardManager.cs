@@ -7,6 +7,7 @@ public class BoardManager : MonoBehaviour
 	private float dimensionOfSqaures = 1;
 	private GridCreator gridCreator;
 
+	// Initialize GridCreator and Grid
 	public BoardManager(){
 		gridCreator = new GridCreator(dimensionOfSqaures);
         grid = new Grid();
@@ -14,10 +15,12 @@ public class BoardManager : MonoBehaviour
 
 	#if UNITY_EDITOR
 	private void OnDrawGizmos(){
+		//Draw board
 		gridCreator.CreateBoard(ref grid);
 	}
 	#endif
 	
+	//Getter Functions
 	public float GetDimensions(){
 		return dimensionOfSqaures;
 	}

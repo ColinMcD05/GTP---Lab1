@@ -2,23 +2,28 @@ using UnityEngine;
 
 public class GridCreator
 {
-
+	//Variables
 	private float dimensions;
 
+	//Initialization
 	public GridCreator(float dimension){
 		dimensions = dimension;
 	}
 
+	//Create board
 	public void CreateBoard(ref Grid grid){
 		CreateOutline();
 		CreateRows(ref grid);
 		CreateColumns(ref grid);
 	}
 
+	//Creates outline
 	private void CreateOutline(){
 		Gizmos.color = Color.black;
 		Vector3 oldVector = new Vector3(0,0,0);
 		Vector3 newVector = new Vector3(0, dimensions*8, 0);
+
+		//Loops though and makes outline
 		for(int i = 0; i < 4; i++){
 			Gizmos.DrawLine(oldVector, newVector);
 			oldVector = newVector;
@@ -37,6 +42,7 @@ public class GridCreator
 		}
 	}
 
+	//Create Rows
 	private void CreateRows(ref Grid grid){
 		for (int i = 0; i < 8; i++)
 		{
@@ -45,6 +51,7 @@ public class GridCreator
 		}
 	}
 
+	//Creates Columns
 	private void CreateColumns(ref Grid grid){
 		for (int i = 0; i < 8; i++)
 		{
