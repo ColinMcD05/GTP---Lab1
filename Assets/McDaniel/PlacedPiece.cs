@@ -6,20 +6,18 @@ public class PlacedPiece : MonoBehaviour
     //Variables
     [SerializeField] private Vector2Int gridPlacement;
     [SerializeField] private ChessPieces.PieceType chosenType;
-    private ChessPieces.PieceType oldType;
     private BoardManager boardManager;
     private ChessPieces piece;
 
     public PlacedPiece()
     {
-        oldType = chosenType;
-        piece = ChangePiece(oldType);
+        piece = ChangePiece(chosenType);
     }
 
     //Changes Piece Reference
     private ChessPieces ChangePiece(ChessPieces.PieceType type)
     {
-        switch (oldType)
+        switch (type)
         {
             case ChessPieces.PieceType.Pawn:
                 return new Pawn();
@@ -38,8 +36,26 @@ public class PlacedPiece : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    private void OnValidate()
+    void OnDrawGizmos()
     {
+        //Handle outof bounds errors
+        if (gridPlacement.x > 7)
+        {
+            gridPlacement.x = 7;
+        }
+        else if (gridPlacement.y < 0)
+        {
+            gridPlacement.x = 0;
+        }
+        if (gridPlacement.y > 7)
+        {
+            gridPlacement.y = 7;
+        }
+        else if (gridPlacement.y < 0)
+        {
+            gridPlacement.y = 0;
+        }
+
         //Assign boardManager
         if (boardManager == null)
         {
@@ -47,16 +63,18 @@ public class PlacedPiece : MonoBehaviour
         }
 
         //Change piece if swapped
-        if (oldType != chosenType)
+        if (piece.GetTypeVar() != chosenType)
         {
-            oldType = chosenType;
             piece = ChangePiece(chosenType);
         }
+
+        transform.position = boardManager.GetGrid().GetPosition(gridPlacement);
+        piece.DrawImage(transform.position);
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-
+        piece.ShowMoveOptions(transform.position, boardManager.GetDimensions());
     }
 #endif
 }

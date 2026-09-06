@@ -13,7 +13,6 @@ public class GridCreator
 		CreateOutline();
 		CreateRows(ref grid);
 		CreateColumns(ref grid);
-		grid.ColorSquare(dimensions);
 	}
 
 	private void CreateOutline(){

@@ -23,6 +23,11 @@ public abstract class ChessPieces
     // This will allow the sprites to be assigned to the correct pieces.
     [SerializeField] protected abstract PieceType Type { get; }
 
+    public PieceType GetTypeVar()
+    {
+        return Type;
+    }
+
     // Will assign a sprite to the corresponding piece.
     public void DrawImage(Vector3 position)
     {
@@ -31,5 +36,5 @@ public abstract class ChessPieces
 
     // Protected function for child classes to override
     // Shows possible movement options in the form of squares as gizmos
-    protected abstract void ShowMoveOptions(Vector3 position, float dimensions);
+    public abstract void ShowMoveOptions(Vector3 position, float dimensions);
 }

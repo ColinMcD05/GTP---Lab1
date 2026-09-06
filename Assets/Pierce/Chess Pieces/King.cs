@@ -6,32 +6,32 @@ public class King : ChessPieces
     protected override PieceType Type => PieceType.King;
 
     // King can move any space directly next to it
-    protected override void ShowMoveOptions(Vector3 position, float dimensions)
+    public override void ShowMoveOptions(Vector3 position, float dimensions)
     {
         Gizmos.color = Color.green;
 
         // Upper Left
-        Gizmos.DrawWireCube(position + ((Vector3.forward * dimensions) + (Vector3.left * dimensions)), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.up * dimensions) + (Vector3.left * dimensions)), new Vector3(dimensions, dimensions, 0));
 
         // Upwards
-        Gizmos.DrawWireCube(position + Vector3.forward * dimensions, Vector3.one * dimensions);
+        Gizmos.DrawCube(position + Vector3.up * dimensions, new Vector3(dimensions, dimensions, 0));
 
         // Upper Right
-        Gizmos.DrawWireCube(position + ((Vector3.forward * dimensions) + (Vector3.right * dimensions)), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.up * dimensions) + (Vector3.right * dimensions)), new Vector3(dimensions, dimensions, 0));
 
         // Left
-        Gizmos.DrawWireCube(position + Vector3.left * dimensions, Vector3.one * dimensions);
+        Gizmos.DrawCube(position + Vector3.left * dimensions, new Vector3(dimensions, dimensions, 0));
 
         // Right
-        Gizmos.DrawWireCube(position + Vector3.right * dimensions, Vector3.one * dimensions);
+        Gizmos.DrawCube(position + Vector3.right * dimensions, new Vector3(dimensions, dimensions, 0));
 
         // Lower Left
-        Gizmos.DrawWireCube(position + ((Vector3.back * dimensions) + (Vector3.left * dimensions)), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.down * dimensions) + (Vector3.left * dimensions)), new Vector3(dimensions, dimensions, 0));
 
         // Downwards
-        Gizmos.DrawWireCube(position + Vector3.back * dimensions, Vector3.one * dimensions);
+        Gizmos.DrawCube(position + Vector3.down * dimensions, new Vector3(dimensions, dimensions, 0));
 
         // Lower Right
-        Gizmos.DrawWireCube(position + ((Vector3.back * dimensions) + (Vector3.right * dimensions)), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.down * dimensions) + (Vector3.right * dimensions)), new Vector3(dimensions, dimensions, 0));
     }
 }

@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class BoardManager : MonoBehaviour
 {
+	//Declare Variables
 	private Grid grid;
-	[SerializeField] private float dimensionOfSqaures = 1;
+	private float dimensionOfSqaures = 1;
 	private GridCreator gridCreator;
 
 	public BoardManager(){
@@ -21,7 +22,7 @@ public class BoardManager : MonoBehaviour
 		return dimensionOfSqaures;
 	}
 
-	public Grid getGrid()
+	public Grid GetGrid()
 	{
 		return grid;
 	}

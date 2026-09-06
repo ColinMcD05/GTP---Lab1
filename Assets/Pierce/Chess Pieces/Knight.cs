@@ -6,32 +6,32 @@ public class Knight : ChessPieces
     protected override PieceType Type => PieceType.Knight;
 
     // Knight can only move in an L shape
-    protected override void ShowMoveOptions(Vector3 position, float dimensions)
+    public override void ShowMoveOptions(Vector3 position, float dimensions)
     {
         Gizmos.color = Color.green;
 
         // Upwards-Left One
-        Gizmos.DrawWireCube(position + ((Vector3.forward) + (Vector3.left * 2) * dimensions), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.up) + (Vector3.left * 2) * dimensions), new Vector3(dimensions, dimensions, 0));
 
         // Upwards-Left Two
-        Gizmos.DrawWireCube(position + ((Vector3.forward * 2) + (Vector3.left) * dimensions), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.up * 2) + (Vector3.left) * dimensions), new Vector3(dimensions, dimensions, 0));
 
         // Downwards-Left One
-        Gizmos.DrawWireCube(position + ((Vector3.back) + (Vector3.left * 2) * dimensions), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.down) + (Vector3.left * 2) * dimensions), new Vector3(dimensions, dimensions, 0));
 
         // Downwards-Left Two
-        Gizmos.DrawWireCube(position + ((Vector3.back * 2) + (Vector3.left) * dimensions), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.down * 2) + (Vector3.left) * dimensions), new Vector3(dimensions, dimensions, 0));
 
         // Upwards-Right One
-        Gizmos.DrawWireCube(position + ((Vector3.forward) + (Vector3.right * 2) * dimensions), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.up) + (Vector3.right * 2) * dimensions), new Vector3(dimensions, dimensions, 0));
 
         // Upwards-Right Two
-        Gizmos.DrawWireCube(position + ((Vector3.forward * 2) + (Vector3.right) * dimensions), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.up * 2) + (Vector3.right) * dimensions), new Vector3(dimensions, dimensions, 0));
 
         // Downwards-Right One
-        Gizmos.DrawWireCube(position + ((Vector3.back) + (Vector3.right * 2) * dimensions), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.down) + (Vector3.right * 2) * dimensions), new Vector3(dimensions, dimensions, 0));
 
         // Upwards-Right Two
-        Gizmos.DrawWireCube(position + ((Vector3.back * 2) + (Vector3.right) * dimensions), Vector3.one * dimensions);
+        Gizmos.DrawCube(position + ((Vector3.down * 2) + (Vector3.right) * dimensions), new Vector3(dimensions, dimensions, 0));
     }
 }
