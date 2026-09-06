@@ -77,4 +77,9 @@ public class PlacedPiece : MonoBehaviour
         piece.ShowMoveOptions(transform.position, boardManager.GetDimensions());
     }
 #endif
+
+    public ChessPieces GetPiece()
+    {
+        return piece;
+    }
 }

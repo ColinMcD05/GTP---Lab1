@@ -1,18 +1,18 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(ChessPieces), true)]
-public class ChessPiecesEditor : Editor
+[CustomEditor(typeof(PlacedPiece), true)]
+public class ChessPieceEditor : Editor
 {
     // Surrounds each Chess Piece with a Handle
     private void OnSceneGUI()
     {
-        ChessPieces piece = (ChessPieces)target;
+        PlacedPiece piece = (PlacedPiece)target;
 
         Vector3 position = piece.transform.position;
 
         Handles.color = Color.blue;
 
-        Handles.DrawWireCube(position, Vector3.one);
+        Handles.DrawWireCube(position, new Vector3 (0.8f, 0.8f, 0));
     }
 }
