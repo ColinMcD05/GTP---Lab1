@@ -5,6 +5,7 @@ public abstract class ChessPieces : MonoBehaviour
 {
     protected string iconName;
     protected bool allowScaling = true;
+    [SerializeField] protected Color spriteColor = Color.white;
     
     // Enum so children of this class can categorize themselves
     protected enum PieceType
@@ -18,6 +19,7 @@ public abstract class ChessPieces : MonoBehaviour
     }
 
     // Allows user to change color tint in Unity interface
+
 
     // Each child of ChessPieces will provide a PieceType Type so that they can override GetPieceType
     // This will allow the sprites to be assigned to the correct pieces.

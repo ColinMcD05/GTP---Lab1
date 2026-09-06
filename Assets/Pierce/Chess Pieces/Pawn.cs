@@ -7,6 +7,9 @@ public class Pawn : ChessPieces
 
     protected override void GetPieceSprite()
     {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = spriteColor;
+
         iconName = "Pawn.png";
 
         Gizmos.DrawIcon(transform.position, iconName, allowScaling);

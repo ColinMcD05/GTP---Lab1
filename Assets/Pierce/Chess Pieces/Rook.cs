@@ -7,6 +7,9 @@ public class Rook : ChessPieces
 
     protected override void GetPieceSprite()
     {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = spriteColor;
+
         iconName = "Rook.png";
 
         Gizmos.DrawIcon(transform.position, iconName, allowScaling);

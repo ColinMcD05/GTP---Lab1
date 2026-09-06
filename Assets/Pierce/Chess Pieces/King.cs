@@ -7,6 +7,9 @@ public class King : ChessPieces
 
     protected override void GetPieceSprite()
     {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = spriteColor;
+
         iconName = "King.png";
 
         Gizmos.DrawIcon(transform.position, iconName, allowScaling);
