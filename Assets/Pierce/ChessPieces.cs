@@ -29,9 +29,9 @@ public abstract class ChessPieces
     }
 
     // Will assign a sprite to the corresponding piece.
-    public void DrawImage(Vector3 position)
+    public void DrawImage(Vector3 position, Color color)
     {
-        Gizmos.DrawIcon(position, Type.ToString(), true);
+        Gizmos.DrawIcon(position, Type.ToString(), true, color);
     }
 
     // Protected function for child classes to override

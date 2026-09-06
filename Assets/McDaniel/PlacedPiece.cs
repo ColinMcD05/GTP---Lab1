@@ -3,11 +3,24 @@ using UnityEngine;
 
 public class PlacedPiece : MonoBehaviour
 {
+    //Enums
+    private enum ColorTints
+    {
+        White,
+        Red,
+        Yellow,
+        Green,
+        Blue,
+        Black
+    }
+
     //Variables
     [SerializeField] private Vector2Int gridPlacement;
     [SerializeField] private ChessPieces.PieceType chosenType;
+    [SerializeField] private ColorTints chosenColor;
     private BoardManager boardManager;
     private ChessPieces piece;
+    private Color tint;
 
     public PlacedPiece()
     {
@@ -56,6 +69,16 @@ public class PlacedPiece : MonoBehaviour
             gridPlacement.y = 0;
         }
 
+        tint = chosenColor switch
+        {
+            ColorTints.Red => Color.red,
+            ColorTints.Yellow => Color.yellow,
+            ColorTints.Blue => Color.blue,
+            ColorTints.Green => Color.green,
+            ColorTints.White => Color.white,
+            ColorTints.Black => Color.black
+        };
+
         //Assign boardManager
         if (boardManager == null)
         {
@@ -69,7 +92,7 @@ public class PlacedPiece : MonoBehaviour
         }
 
         transform.position = boardManager.GetGrid().GetPosition(gridPlacement);
-        piece.DrawImage(transform.position);
+        piece.DrawImage(transform.position, tint);
     }
 
     private void OnDrawGizmosSelected()
